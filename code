@@ -1,0 +1,51 @@
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+public class Montagne
+{
+    public int Hauteur { get; set; }
+    public int Numero { get; set; }
+}
+class Player
+{
+    static void Main(string[] args)
+    {
+
+        // game loop
+        while (true)
+        {
+            List<Montagne> sommets = new List <Montagne>();
+            for (int i = 0; i < 8; i++)
+            {
+                Montagne montagne = new Montagne();
+                montagne.Hauteur = int.Parse(Console.ReadLine()); // represents the height of one mountain, from 9 to 0.
+                montagne.Numero = i;
+                sommets.Add (montagne);
+            }
+
+            Montagne cible = new Montagne();
+            foreach (Montagne montagne in sommets)
+            {
+                if (montagne.Hauteur > cible.Hauteur )
+                {
+                    cible = montagne ;
+                }
+
+            }
+
+
+            // Write an action using Console.WriteLine()
+            // To debug: Console.Error.WriteLine("Debug messages...");
+
+            Console.WriteLine(cible.Numero); // The number of the mountain to fire on.
+        }
+    }
+}
